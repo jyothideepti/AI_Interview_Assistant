@@ -14,3 +14,8 @@ if role=="other":
   model=st.selectbox('Model',['openai/gpt-oss-20b','qwen/qwen3.8-27b'])
   level=st.selectbox('Difficulty',['Beginner','Intermediate','Advanced'])  
   mode = st.radio('Activity',['Generate Questions','Generate Code','Evaluate Answers','Improve Answers'])
+if mode=='Generate Questions':
+  count=st.slider("Number of Questions",1,10,5)
+elif mode=='Generate Code Questions':
+  topic=st.selectbox('Topics',['SQL','AIML','Python','DSA','C/C++','Java','Cyber Security','Web Developer,])
+  count=st.slider("Number of Questions",1,10,5)
