@@ -42,7 +42,7 @@ try:
     response=client.chat.completions.create(
       model=gen_model,
       messages=[{"role":"system","content":"You are an expert technical interviewer"},
-                {"role:"user",
+                {"role":"user",
                 "content":background+task}],
       temperature=0.7,
       max_tokens=2000)
