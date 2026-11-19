@@ -40,16 +40,16 @@ if st.button('Generate AI response', type="primary"):
 with st.spinner("Generating your answer..."):
 try:
     response=client.chat.completions.create(
-      model=gen_model,
-      messages=[{"role":"system","content":"You are an expert technical interviewer"},
+    model=gen_model,
+    messages=[{"role":"system","content":"You are an expert technical interviewer"},
                 {"role":"user",
                 "content":background+task}],
-      temperature=0.7,
-      max_tokens=2000)
-      output = response.choices[0].message.content
-      st.subheder("AI Response ")
-      st.markdown(output)
-      st.download_button("Download Response", output, file_name = "Interview_Response.txt", mime = 'text/plain')
+    temperature=0.7,
+    max_tokens=2000)
+    output = response.choices[0].message.content
+    st.subheder("AI Response ")
+    st.markdown(output)
+    st.download_button("Download Response", output, file_name = "Interview_Response.txt", mime = 'text/plain')
   except Exception as e:
     st.error ("API connection was unsuccessful: ",e)
     st.info  ("Please check your API Key and rate limits")
