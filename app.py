@@ -38,7 +38,7 @@ if st.button('Generate AI response', type="primary"):
     task="Questions " +question+"My answers"+answer+ " Improve answer based on choice of words,key words,accuracy,concept,relevant,better explanation and choice of words"
     background = "Job role : " +role+ " Difficulty level "+level
 with st.spinner("Generating your answer..."):
-try:
+  try:
     response=client.chat.completions.create(
     model=gen_model,
     messages=[{"role":"system","content":"You are an expert technical interviewer"},
@@ -50,7 +50,7 @@ try:
     st.subheder("AI Response ")
     st.markdown(output)
     st.download_button("Download Response", output, file_name = "Interview_Response.txt", mime = 'text/plain')
-  except Exception as e:
+   except Exception as e:
     st.error ("API connection was unsuccessful: ",e)
     st.info  ("Please check your API Key and rate limits")
     st.caption("Powered by Streamlit.io and GitHub.Using LLM API")
