@@ -24,7 +24,7 @@ else:
   question=st.text_area('Enter Interview Question here')
   answer=st.text_area('Enter your answer',height=160)
 if st.button('Generate AI response', type="primary"):
-if (mode in['Evaluate answers','Improve answers']) and (not question.strip()) or (not answer.strip()):
+if mode in ['Evaluate Answers','Improve Answers'] and (not question.strip() or not answer.strip()):
   st.warning("Please enter question and answer")
   st.stop()
   topics = "Topics is " + topic + "Difficulty is " + level
