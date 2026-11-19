@@ -27,16 +27,16 @@ if st.button('Generate AI response', type="primary"):
     if mode in ['Evaluate answers','Improve answers'] and (question.strip()=='' or answer.strip()==''):
         st.warning("Please enter a valid question and answer")
         st.stop()
-if mode=='Generate questions':
-   task="Generate "+str(count)+"Frequently asked Interview questions 3 theory and 2 scenario questions don't give answers give hints"
-elif mode=='Generate code questions':
-   task="Generate "+str(count)+"Frequently asked coding question on topic"+topic+"and give hints to solve them.Be accurate"
-elif mode=='Evaluate answers':
-   task="Question: "+question+"My answer"+answer+"Evaluate these answer based on concept,relavent,communicatin and length of answer"
-elif mode=="Improve answers":
-   task="Question: "+question+"My answers"+answer+"Improve anwer based on choice of words,key words,accuracy,concept,relevant,better explaination and choice of words"
-background="Job role: "+role+"Difficulty level :"+level
-with st.spinner("Generating your answer..."):
+    if mode=='Generate questions':
+        task="Generate "+str(count)+"Frequently asked Interview questions 3 theory and 2 scenario questions don't give answers give hints"
+    elif mode=='Generate code questions':
+        task="Generate "+str(count)+"Frequently asked coding question on topic"+topic+"and give hints to solve them.Be accurate"
+    elif mode=='Evaluate answers':
+        task="Question: "+question+"My answer"+answer+"Evaluate these answer based on concept,relavent,communicatin and length of answer"
+    elif mode=="Improve answers":
+        task="Question: "+question+"My answers"+answer+"Improve anwer based on choice of words,key words,accuracy,concept,relevant,better explaination and choice of words"
+    background="Job role: "+role+"Difficulty level :"+level
+    with st.spinner("Generating your answer..."):
     try:
         response=client.chat.completions.create(
             model=gen_model,
